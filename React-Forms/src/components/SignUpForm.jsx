@@ -1,7 +1,7 @@
 import { useState } from "react";
-// import Authenticate from "./component/Authenticate";
 
-export default function SignupForm() {
+export default function SignupForm(props) {
+  const  {token, setToken} = props;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -17,6 +17,8 @@ export default function SignupForm() {
         }
       );
       const result = await response.json();
+      setToken(result.token);
+      console.log(token);
       console.log(result);
     } catch (error) {
       setError(error.message);

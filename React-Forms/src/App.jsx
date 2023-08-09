@@ -5,9 +5,15 @@ import Authenticate from "./components/Authenticate";
 
 
 export default function App(){
+
+const [token, setToken] = useState(null);
+
   return(<>
-  <Authenticate/>
-  <SignupForm/>
+
+  <Authenticate  token={token} />
+  <SignupForm token={token} setToken={setToken}/>
+  {console.log(token)}
   </>
   );
+  
 }
